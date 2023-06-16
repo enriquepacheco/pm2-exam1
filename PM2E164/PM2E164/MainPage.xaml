@@ -1,24 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PM2E164.MainPage">
-
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PM2E164.MainPage">
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        <Frame BackgroundColor="#2196F3" Padding="10" CornerRadius="0">
+            <Label Text="Site visitor app" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+        <StackLayout Padding="16, 20" Spacing="10">
+            <Label HorizontalOptions="CenterAndExpand" Text="Imagen sitio visitado" />
+            <Grid>
+                <Image x:Name="ImgLugar" BackgroundColor="GhostWhite" HeightRequest="200" WidthRequest="200" />
+                <Button x:Name="BtTomarFoto" BackgroundColor="#11000000" Text="Tomar foto..." HorizontalOptions="End" VerticalOptions="End" FontSize="Caption" Clicked="BtTomarFoto_Clicked" />
+            </Grid>
+            <Label HorizontalOptions="CenterAndExpand" Text="Latitud" />
+            <Entry x:Name="TxtLatitud" BackgroundColor="White" IsReadOnly="True" />
+            <Label HorizontalOptions="CenterAndExpand" Text="Longitud" />
+            <Entry x:Name="TxtLongitud" BackgroundColor="White" IsReadOnly="True" />
+            <Editor x:Name="TxtDescripcion" HeightRequest="100" Placeholder="Ingrese una descripción del lugar" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Button x:Name="BtAgregar" IsEnabled="True" Clicked="BtAgregar_Clicked" Text="Agregar" />
+                <Button Clicked="BtListado_Clicked" Grid.Column="1" Text="Lista sitios" />
+                
+            </Grid>
+            <Button Clicked="BtSalir_Clicked" Text="Salir app" />
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
