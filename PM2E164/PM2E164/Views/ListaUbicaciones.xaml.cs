@@ -24,7 +24,7 @@ namespace PM2E164.Views
 
         private async void list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.CurrentSelection == null)
+            if (e.CurrentSelection.Count == 0)
                 return;
 
             var respuesta = await DisplayActionSheet("Acción", "Cancelar", null, new string[] { "Ir a la ubicación", "Eliminar" });
@@ -33,7 +33,7 @@ namespace PM2E164.Views
             switch (respuesta)
             {
                 case "Ir a la ubicación":
-
+                    await Navigation.PushAsync(new VerLugarMapa(lugar));
                     break;
                 case "Eliminar":
                     await App.LugaresRepositorio.Delete(lugar);
@@ -42,11 +42,6 @@ namespace PM2E164.Views
                     break;
                 default:
                     break;
-            }
-
-            if (await DisplayAlert("Acción", "Desea ir a la ubicación indicada", "Yes", "No"))
-            {
-                await DisplayAlert("", .Descripcion, "Ok");
             }
 
             ((CollectionView)sender).SelectedItem = null;

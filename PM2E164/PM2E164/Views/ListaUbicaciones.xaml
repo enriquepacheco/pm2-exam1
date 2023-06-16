@@ -10,16 +10,16 @@
         SelectionMode="Single"
         SelectionChanged="list_SelectionChanged">
 
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="15">
-            </LinearItemsLayout>
-        </CollectionView.ItemsLayout>
-
         <CollectionView.Header>
             <StackLayout Padding="20">
                 <Label TextColor="Crimson" Text="Presione un objeto de la lista para ver las opciones" />
             </StackLayout>
         </CollectionView.Header>
+        <CollectionView.EmptyView>
+            <StackLayout Padding="20">
+                <Label Text="No hay lugares agregados" />
+            </StackLayout>
+        </CollectionView.EmptyView>
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout Padding="24">

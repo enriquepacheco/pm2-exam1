@@ -5,8 +5,15 @@
     x:Class="PM2E164.Views.VerLugarMapa"
     xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
     <ContentPage.Content>
-        <StackLayout>
-            <maps:Map x:Name="mapa" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <maps:Map x:Name="mapa" IsShowingUser="True" />
+            
+            <Button Grid.Row="1" x:Name="BtCompartir" Clicked="BtCompartir_Clicked" Margin="30" Text="Compartir imagen" HorizontalOptions="CenterAndExpand" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -94,7 +94,6 @@ namespace PM2E164
                 return;
             }
 
-
             if (string.IsNullOrEmpty(TxtLongitud.Text?.Trim()))
             {
                 await DisplayAlert("Aviso", "No se ha encontrado el valor de Longitud", "Aceptar");
@@ -106,7 +105,6 @@ namespace PM2E164
                 await DisplayAlert("Aviso", "No has tomado una imagen", "Aceptar");
                 return;
             }
-
 
             if (string.IsNullOrEmpty(TxtDescripcion.Text?.Trim()))
             {
@@ -122,15 +120,12 @@ namespace PM2E164
                 Foto = await GetImageBytes(),
             }) > 0)
             {
-                TxtLongitud.Text = null;
-                TxtLatitud.Text = null;
                 TxtDescripcion.Text = null;
                 ImgLugar.Source = null;
                 await DisplayAlert("Éxito", "Registrado correctamente", "Aceptar");
             }
             else
-                await DisplayAlert("Aviso", "Ocurrió un error al registrar", "Aceptar");
-
+                await DisplayAlert("Aviso", "Ocurrió un error al registrar, revise los valores", "Aceptar");
         }
 
         public async Task<byte[]> GetImageBytes()
@@ -157,7 +152,7 @@ namespace PM2E164
 
         private void BtSalir_Clicked(object sender, EventArgs e)
         {
-            Application.Current.Quit();
+            Environment.Exit(0);
         }
     }
 }

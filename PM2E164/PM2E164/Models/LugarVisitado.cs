@@ -9,7 +9,7 @@ namespace PM2E164.Models
         public int Id { get; set; } = 0;
 
         public double Longitud { get; set; }
-        
+
         public double Latitud { get; set; }
 
         [MaxLength(200)]
